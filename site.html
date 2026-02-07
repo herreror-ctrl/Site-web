@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+<h1> random number generator </h1>
+    
+<form id="number">
+  <label for="quantity"> Max number (between 1 and 99):</label>
+  <input type="number" id="quantity" name="quantity" min="1" max="99">
+  <input type="submit" value="Submit">
+</form>
+
+    <button popovertarget="button1"> Click Here </button>
+    <p popover id="button1">
+      <span id="text"></span>
+    </p>
+
+    <script>
+      const form = document.getElementById('quantity');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const quantity = new FormData(form).get('quantity');
+        const randomNumber = Math.floor(Math.random() * (quantity + 1));
+        document.getElementById('text').textContent = randomNumber;
+      });  
+    </script>
+  </body>
+</html>
